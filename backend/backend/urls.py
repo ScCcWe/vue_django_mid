@@ -18,9 +18,11 @@ from django.urls import path, include
 from django.views.static import serve
 
 from backend.settings import MEDIA_ROOT
+from goods.views_base import GoodsListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ueditor/', include('DjangoUeditor.urls')),
     path('media/<path:path>', serve, {"document_root": MEDIA_ROOT}),
+    path('goods/', GoodsListView.as_view(), name='goods'),
 ]
