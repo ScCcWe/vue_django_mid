@@ -41,11 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
+
     'apps.users',
     'apps.user_operation',
     'apps.trade',
     'apps.goods',
+
+    'rest_framework',
     'DjangoUeditor',
 ]
 
