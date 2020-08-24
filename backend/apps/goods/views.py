@@ -9,5 +9,5 @@ class GoodsListView(generics.ListAPIView):
     """
     商品列表页
     """
-    queryset = Goods.objects.all()
+    queryset = Goods.objects.all().order_by('id')
     serializer_class = GoodsSerializer
