@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'DjangoUeditor',
+    'django_filters'
 ]
 
 AUTH_USER_MODEL = 'users.UserProfile'
