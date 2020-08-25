@@ -54,12 +54,12 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'users.UserProfile'
 
 # 用于添加分页
-REST_FRAMEWORK = {
-    # 分页所使用的类
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    # 每页显示的数量
-    'PAGE_SIZE': 10,
-}
+# REST_FRAMEWORK = {
+#     # 分页所使用的类
+#     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+#     # 每页显示的数量
+#     'PAGE_SIZE': 10,
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
