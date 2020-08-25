@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, mixins, viewsets
 from rest_framework.pagination import PageNumberPagination
 
 from .models import Goods
@@ -20,11 +20,10 @@ class GoodsPagination(PageNumberPagination):
 
 
 # 使用generics.ListAPIView来进一步的简化代码
-class GoodsListView(generics.ListAPIView):
+class GoodsListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     """
     商品列表页
     """
-    queryset = Goods.objects.all().order_by('id')
+    queryset = Goods.objects.all()
     serializer_class = GoodsSerializer
-    # 自定义分页
     pagination_class = GoodsPagination
