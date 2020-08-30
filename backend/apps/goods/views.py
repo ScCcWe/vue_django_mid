@@ -4,8 +4,8 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 
 from .filters import GoodsFilter
-from .models import Goods
-from .serializers import GoodsSerializer
+from .models import Goods, GoodsCategory
+from .serializers import GoodsSerializer, CategorySerializer
 
 
 class GoodsPagination(PageNumberPagination):
@@ -38,3 +38,12 @@ class GoodsListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     search_fields = ('name', 'goods_brief')
 
     ordering_fields = ('shop_price', 'add_time')
+
+
+class CategoryViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+    """
+    商品分类
+    """
+    queryset = GoodsCategory.objects.all()
+    serializer_class = CategorySerializer
+    pagination_class = GoodsPagination

@@ -31,6 +31,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
 
 # Application definition
 
@@ -49,7 +52,9 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'DjangoUeditor',
-    'django_filters'
+    'django_filters',
+    'debug_toolbar',
+    'corsheaders',
 ]
 
 AUTH_USER_MODEL = 'users.UserProfile'
@@ -62,7 +67,16 @@ AUTH_USER_MODEL = 'users.UserProfile'
 #     'PAGE_SIZE': 10,
 # }
 
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+}
+
+# 跨域
+CORS_ORIGIN_ALLOW_ALL = True
+
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

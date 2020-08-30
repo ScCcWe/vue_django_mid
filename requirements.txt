@@ -1,3 +1,7 @@
 django = "~=2.2"
 djangorestframework = "*"
 pillow = "*"
+coreapi = "*"
+django-guardian = "*"
+django-filter = "*"
+django-debug-toolbar = "*"
